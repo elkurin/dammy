@@ -25,8 +25,9 @@ int main(void)
 		for (int j = 1; j < n; j ++) {
 			rep(i, n - j) {
 				if (check(w[i], w[i + j])) dp[i][i + j] += dp[i + 1][i + j - 1];
-				if (i < n - 2 && check(w[i], w[i + 1])) dp[i][i + j] += dp[i + 2][i + j];
-				if (j > 2 && check(w[i + j], w[i + j - 1])) dp[i][i + j] += dp[i][i + j - 2];
+				for (int k = i + 1; k < i + j - 1; k++) dp[i][i + j] += dp[i][k] * dp[k + 1][i + j];
+				// if (i < n - 2 && check(w[i], w[i + 1])) dp[i][i + j] += dp[i + 2][i + j];
+				// if (j > 2 && check(w[i + j], w[i + j - 1])) dp[i][i + j] += dp[i][i + j - 2];
 			}
 		}
 		// rep(j, n - 1) rep(i, n - j) {
