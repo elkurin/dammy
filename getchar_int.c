@@ -2,6 +2,7 @@
 
 int main(void)
 {
+	// 読みこむパート
 	int a[1000];
 	int end = 0;
 	while(1) {
@@ -10,6 +11,8 @@ int main(void)
 		a[end] = get - (int)'0';
 		end++;
 	}
+
+	// 確認用パート
 	printf("%d\n", a[0] + 1);
 	int i;
 	for (i = 0; i < end; i++) printf("%d", a[i]);
